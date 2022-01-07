@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent>
     <input disabled type="text" :value = "detailContents.title">
     <textarea disabled rows="10" :value="detailContents.content"></textarea>
     <div class="btn-area">
@@ -39,10 +39,13 @@ export default {
         if (confirm("You want to delete it?")) {
           const id = this.$route.params.id;
           const response = await deleteContents(id);
-          this.$router.push('/board')
+          console.log(deleteContents, response);
+          await this.$router.push('/board');
         }
       } catch (e) {
         console.log(e);
+      } finally {
+        console.log('deleteContents finally')
       }
     },
     routeEditPage() {

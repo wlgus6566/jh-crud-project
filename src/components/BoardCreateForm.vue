@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import {deleteContents, postContents} from '@/api/index'
+import {postContents} from '@/api'
 export default {
   name: "BoardForm",
   data() {

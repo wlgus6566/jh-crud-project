@@ -66,14 +66,14 @@ export default {
     },
     async EditForm() {
       try {
-        if (confirm("수정하시겠습니까?")) {
+        if (confirm("You want to edit it?")) {
           const id = this.$route.params.id;
-          const response = await editContents( id,{
+          const response = await editContents(id,{
             title: this.detailContents.title,
             content: this.detailContents.content
           });
-          await bus.$emit('show:toast', `was deleted`);
-          this.$router.push('/board');
+          //await bus.$emit('show:toast', `was deleted`);
+          await this.$router.push('/board');
           console.log("editContents", response)
         }
       } catch (err) {

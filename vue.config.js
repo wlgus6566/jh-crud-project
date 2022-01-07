@@ -7,14 +7,15 @@ module.exports = {
     devServer: {
         host: 'localhost',
         port: 8080,
+        compress: true,
         overlay: false,
         disableHostCheck: true,
         proxy: {
-            '/board': {
+            'community/board': {
                 target: process.env.VUE_APP_API_URL,
                 changeOrigin: true,
             },
-            '/board/:id': {
+            'community/board/:id': {
                 target: process.env.VUE_APP_API_URL,
                 changeOrigin: true,
             },
